@@ -13,10 +13,15 @@ gem 'devise-bootstrap-views', '~> 0.0.6'
 gem 'thin', '1.6.3'
 
 group :development, :test do
+  gem "rspec-rails", "~> 3.0"
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
+  gem "pry"
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 group :production do

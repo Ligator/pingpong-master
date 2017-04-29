@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_payed: 2017-04-29
+  opponent: MyString
+  your_score: 1
+  their_socer: 1
+
+two:
+  date_payed: 2017-04-29
+  opponent: MyString
+  your_score: 1
+  their_socer: 1

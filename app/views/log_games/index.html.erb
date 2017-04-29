@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class='page-header'>History</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date payed</th>
+      <th>Opponent</th>
+      <th>Score</th>
+      <th>Result</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @log_games.each do |log_game| %>
+      <tr>
+        <td><%= log_game.date_payed %></td>
+        <td><%= current_user.opponent_in_game(log_game).email %></td>
+        <td><%= log_game.your_score %> - <%= log_game.their_socer %></td>
+        <td><%= current_user.win?(log_game) ? "W" : "L" %></td>
+        <td><%= link_to 'Destroy', log_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Log game', new_log_game_path %>
