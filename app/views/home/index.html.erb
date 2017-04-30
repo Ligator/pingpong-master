@@ -1,7 +1,23 @@
 <h1 class='page-header'>Leaderboard</h1>
 
-<div class="alert alert-warning" role="alert">This is a sample page.</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Player</th>
+      <th>Score</th>
+      <th>Games Played</th>
+    </tr>
+  </thead>
 
-<%= image_tag('leaderboard.png') %>
-
-
+  <tbody>
+    <% @users.each_with_index do |user, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= user.email %></td>
+        <td><%= user.score.presence || "X" %></td>
+        <td><%= user.games_played %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -24,6 +24,30 @@ describe User do
     end
   end
 
+  describe "#games_played" do
+    before do
+      @log_game1 = LogGame.create(first_opponent_id: @user.id,
+                                  second_opponent_id: 100,
+                                  your_score: 21,
+                                  their_socer: 17,
+                                  date_payed: Date.today)
+      @log_game2 = LogGame.create(first_opponent_id: 101,
+                                  second_opponent_id: 100,
+                                  your_score: 21,
+                                  their_socer: 17,
+                                  date_payed: Date.today)
+      @log_game3 = LogGame.create(first_opponent_id: 101,
+                                  second_opponent_id: @user.id,
+                                  your_score: 21,
+                                  their_socer: 17,
+                                  date_payed: Date.today)
+    end
+
+    it "should get log_games for current user" do
+      expect(@user.games_played).to eq(2)
+    end
+  end
+
   describe "#opponents" do
     before do
       @user2 = User.create(email: "user2@example.com", password: "12345678", password_confirmation: "12345678")

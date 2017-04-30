@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @log_games = LogGame.all
+    @users = User.order(score: :desc).limit(10)
   end
 
   def history

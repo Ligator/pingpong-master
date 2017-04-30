@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :trackable, :validatable
-  # scope :opponents, -> { where.not(id: id) }
 
   def opponents
     User.where.not(id: id)
@@ -19,6 +18,10 @@ class User < ActiveRecord::Base
     return true if log_game.first_opponent_id == id && log_game.your_score > log_game.their_socer
     return true if log_game.second_opponent_id == id && log_game.your_score < log_game.their_socer
     false
+  end
+
+  def games_played
+    log_games.count
   end
 
 private

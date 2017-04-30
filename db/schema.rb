@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429205205) do
+ActiveRecord::Schema.define(version: 20170429233329) do
 
   create_table "log_games", force: :cascade do |t|
     t.date     "date_payed"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170429205205) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "score"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
