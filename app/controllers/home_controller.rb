@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @users = User.order(score: :desc).limit(10)
+    users_with_score = User.where.not(score: nil).order(score: :desc)
+    users_without_score = User.where(score: nil)
+    @users = users_with_score + users_without_score
   end
 
   def history
